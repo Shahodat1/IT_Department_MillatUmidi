@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import ResearchCard from "../components/ResearchCard";
-import { API_BASE } from "../../services/adminApi";
+import { API_BASE } from "../services/adminApi";
 
 const API_BASE_URL = API_BASE;
 

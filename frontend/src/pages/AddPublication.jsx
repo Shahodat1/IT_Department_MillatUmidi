@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { API_BASE } from "../../services/adminApi";
+import { API_BASE } from "../services/adminApi";
 
 function AddPublication() {
   const [formData, setFormData] = useState({

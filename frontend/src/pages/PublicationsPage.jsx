@@ -2,8 +2,9 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Calendar, User, BookOpen, ArrowUpRight } from "lucide-react";
+import { API_BASE } from "../services/adminApi";
 
-const API_URL = "http://127.0.0.1:8000/api";
+const API_URL = API_BASE;
 
 const TAB_OPTIONS = [
   { key: "video", label: "Videogallery" },

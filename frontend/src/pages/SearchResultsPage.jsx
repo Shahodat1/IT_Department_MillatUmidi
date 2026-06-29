@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams, Link } from "react-router-dom";
-import { API_BASE } from "../../services/adminApi";
+import { API_BASE } from "../services/adminApi";
 
 function SearchResultsPage() {
   const [searchParams] = useSearchParams();

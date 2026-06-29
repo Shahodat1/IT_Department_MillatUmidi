@@ -7,7 +7,7 @@ import {
   setAccessToken,
   setRefreshToken,
 } from "../services/adminApi";
-import { API_BASE } from "../../services/adminApi";
+import { API_BASE } from "../services/adminApi";
 
 const BASE_URL = API_BASE;
 
