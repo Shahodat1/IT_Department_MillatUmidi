@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams, Link } from "react-router-dom";
+import { API_BASE } from "../../services/adminApi";
 
 function SearchResultsPage() {
   const [searchParams] = useSearchParams();
@@ -15,9 +16,7 @@ function SearchResultsPage() {
   useEffect(() => {
     if (!query.trim()) return;
 
-    fetch(
-      `http://127.0.0.1:8000/api/search/?search=${encodeURIComponent(query)}`,
-    )
+    fetch(`${API_BASE}/api/search/?search=${encodeURIComponent(query)}`)
       .then((res) => res.json())
       .then((data) => {
         setResults({

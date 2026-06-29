@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { API_BASE } from "../../services/adminApi";
 
 function AddPublication() {
   const [formData, setFormData] = useState({
@@ -23,7 +24,7 @@ function AddPublication() {
 
     if (file) form.append("file", file); // 🔥 faqat shu
 
-    const res = await fetch("http://127.0.0.1:8000/api/publications/", {
+    const res = await fetch(`${API_BASE}/api/publications/`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,

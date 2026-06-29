@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { API_BASE } from "../../services/adminApi";
 
 function OfficeHoursTab({ officeHours = [], isOwner = false }) {
   const [showModal, setShowModal] = useState(false);
@@ -15,8 +16,8 @@ function OfficeHoursTab({ officeHours = [], isOwner = false }) {
       const token = localStorage.getItem("access");
 
       const url = editingItem
-        ? `http://127.0.0.1:8000/api/office-hours/${editingItem.id}/`
-        : "http://127.0.0.1:8000/api/office-hours/";
+        ? `${API_BASE}/api/office-hours/${editingItem.id}/`
+        : `${API_BASE}/api/office-hours/`;
 
       const method = editingItem ? "PATCH" : "POST";
 
@@ -74,15 +75,12 @@ function OfficeHoursTab({ officeHours = [], isOwner = false }) {
     try {
       const token = localStorage.getItem("access");
 
-      const response = await fetch(
-        `http://127.0.0.1:8000/api/office-hours/${id}/`,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+      const response = await fetch(`${API_BASE}/api/office-hours/${id}/`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-      );
+      });
 
       if (!response.ok) {
         throw new Error();

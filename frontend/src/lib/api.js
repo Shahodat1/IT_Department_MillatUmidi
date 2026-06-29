@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://127.0.0.1:8000/api",
+  baseURL: `${API_BASE}/api`,
 });
 
 // ACCESS TOKEN QO‘SHISH
@@ -30,12 +30,9 @@ api.interceptors.response.use(
         const refresh = localStorage.getItem("refresh");
 
         // refresh yuborish
-        const response = await axios.post(
-          "http://127.0.0.1:8000/api/accounts/refresh/",
-          {
-            refresh,
-          },
-        );
+        const response = await axios.post(`${API_BASE}/api/accounts/refresh/`, {
+          refresh,
+        });
 
         const newAccess = response.data.access;
 

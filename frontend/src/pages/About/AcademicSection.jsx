@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { API_BASE } from "../../services/adminApi";
 
 function AcademicSection() {
   const [lecturers, setLecturers] = useState(0);
@@ -7,7 +8,7 @@ function AcademicSection() {
   const [totalTeachers, setTotalTeachers] = useState(0);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/teachers/")
+    fetch(`${API_BASE}/api/teachers/`)
       .then((res) => res.json())
       .then((data) => {
         const teachers = data.results.filter((t) => t.is_active);

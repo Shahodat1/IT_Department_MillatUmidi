@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import { API_BASE } from "../../services/adminApi";
 
 function PartnersSection() {
   const [partners, setPartners] = useState([]);
-  const API_BASE_URL = "http://127.0.0.1:8000";
+  const API_BASE_URL = API_BASE;
 
   useEffect(() => {
     fetch(`${API_BASE_URL}/api/partners/`)

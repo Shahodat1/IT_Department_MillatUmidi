@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import { API_BASE } from "../../services/adminApi";
 
 function BreakingNews() {
   const [news, setNews] = useState([]);
@@ -12,7 +13,7 @@ function BreakingNews() {
   const fetchNews = async () => {
     try {
       const response = await axios.get(
-        "http://127.0.0.1:8000/api/announcements/breaking/",
+        `${API_BASE}/api/announcements/breaking/`,
       );
 
       setNews(response.data);

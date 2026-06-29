@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { API_BASE } from "../../services/adminApi";
 
 function AnnouncementTimeline() {
   const [upcoming, setUpcoming] = useState([]);
@@ -6,8 +7,8 @@ function AnnouncementTimeline() {
 
   useEffect(() => {
     Promise.all([
-      fetch("http://127.0.0.1:8000/api/announcements/"),
-      fetch("http://127.0.0.1:8000/api/events/"),
+      fetch(`${API_BASE}/api/announcements/`),
+      fetch(`${API_BASE}/api/events/`),
     ])
       .then(([aRes, eRes]) => Promise.all([aRes.json(), eRes.json()]))
       .then(([aData, eData]) => {

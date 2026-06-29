@@ -14,8 +14,9 @@ import {
   BarChart3,
   ArrowUpRight,
 } from "lucide-react";
+import { API_BASE } from "../../services/adminApi";
 
-const APP_BASE_URL = "http://127.0.0.1:8000";
+const APP_BASE_URL = API_BASE;
 
 function CourseDetail() {
   const { code } = useParams();

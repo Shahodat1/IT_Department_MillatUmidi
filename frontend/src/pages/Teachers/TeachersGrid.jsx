@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { API_BASE } from "../../services/adminApi";
 
 function TeachersGrid() {
   const [teachers, setTeachers] = useState([]);
   const [loading, setLoading] = useState(true);
-  const BASE_URL = "http://127.0.0.1:8000";
 
   useEffect(() => {
     const loadTeachers = async () => {
       try {
         setLoading(true);
 
-        const res = await fetch(`${BASE_URL}/api/teachers/`);
+        const res = await fetch(`${API_BASE}/api/teachers/`);
         const data = await res.json();
         console.log("Teachers API:", data);
 

@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { API_BASE } from "../../services/adminApi";
 
 function AnnouncementDetails() {
   const { slug } = useParams();
@@ -7,7 +8,7 @@ function AnnouncementDetails() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const BASE_URL = "http://127.0.0.1:8000";
+  const BASE_URL = API_BASE;
 
   // Date format
   const formatDate = (dateString) => {

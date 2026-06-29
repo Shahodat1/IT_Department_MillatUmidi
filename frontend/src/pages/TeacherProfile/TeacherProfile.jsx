@@ -8,6 +8,7 @@ import ResearchTab from "./ResearchTab";
 import PublicationsTab from "./PublicationsTab";
 import OfficeHourModal from "./OfficeHourModal";
 import CoursesTab from "./CoursesTab";
+import { API_BASE } from "../../services/adminApi";
 
 function TeacherProfile() {
   const { id } = useParams();
@@ -47,7 +48,7 @@ function TeacherProfile() {
     }
 
     // Teacher
-    fetch(`http://127.0.0.1:8000/api/teachers/${id}/`)
+    fetch(`${API_BASE}/api/teachers/${id}/`)
       .then((res) => res.json())
       .then((data) => {
         setTeacher(data);
@@ -59,7 +60,7 @@ function TeacherProfile() {
         setTeacher(null);
       });
 
-    fetch(`http://127.0.0.1:8000/api/courses/?teacher=${id}`)
+    fetch(`${API_BASE}/api/courses/?teacher=${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log("COURSE API =", data);
@@ -68,7 +69,7 @@ function TeacherProfile() {
       .catch(() => setCourses([]));
 
     // Publications
-    fetch(`http://127.0.0.1:8000/api/publications/?teacher=${id}`, { headers })
+    fetch(`${API_BASE}/api/publications/?teacher=${id}`, { headers })
       .then((res) => res.json())
       .then((data) => {
         setPublications(data.results || data || []);
@@ -76,7 +77,7 @@ function TeacherProfile() {
       .catch(() => setPublications([]));
 
     // Education
-    fetch(`http://127.0.0.1:8000/api/education/?teacher=${id}`, { headers })
+    fetch(`${API_BASE}/api/education/?teacher=${id}`, { headers })
       .then((res) => res.json())
       .then((data) => {
         setEducations(data.results || data || []);
@@ -84,7 +85,7 @@ function TeacherProfile() {
       .catch(() => setEducations([]));
 
     // Research
-    fetch(`http://127.0.0.1:8000/api/research/?teacher=${id}`)
+    fetch(`${API_BASE}/api/research/?teacher=${id}`)
       .then((res) => res.json())
       .then((data) => {
         setResearchList(data.results || data || []);
@@ -92,7 +93,7 @@ function TeacherProfile() {
       .catch(() => setResearchList([]));
 
     // Work Experience
-    fetch(`http://127.0.0.1:8000/api/work-experience/?teacher=${id}`)
+    fetch(`${API_BASE}/api/work-experience/?teacher=${id}`)
       .then((res) => res.json())
       .then((data) => {
         const list = data.results || data || [];
@@ -103,7 +104,7 @@ function TeacherProfile() {
       .catch(() => setWorkExperiences([]));
 
     // Timetable
-    fetch(`http://127.0.0.1:8000/api/timetable/?teacher=${id}`)
+    fetch(`${API_BASE}/api/timetable/?teacher=${id}`)
       .then((res) => res.json())
       .then((data) => {
         const list = data.results || data || [];
@@ -114,7 +115,7 @@ function TeacherProfile() {
       .catch(() => setTimetable([]));
 
     // Honor Awards
-    fetch(`http://127.0.0.1:8000/api/honor-awards/?teacher=${id}`)
+    fetch(`${API_BASE}/api/honor-awards/?teacher=${id}`)
       .then((res) => res.json())
       .then((data) => {
         const list = data.results || data || [];
@@ -126,7 +127,7 @@ function TeacherProfile() {
 
     // Owner check
     if (token) {
-      fetch("http://127.0.0.1:8000/api/accounts/me/", {
+      fetch(`${API_BASE}/api/accounts/me/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -148,15 +149,12 @@ function TeacherProfile() {
 
   const handleDeleteOfficeHour = async (officeHourId) => {
     try {
-      const res = await fetch(
-        `http://127.0.0.1:8000/api/office-hours/${officeHourId}/`,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+      const res = await fetch(`${API_BASE}/api/office-hours/${officeHourId}/`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-      );
+      });
 
       if (!res.ok) {
         throw new Error("Delete failed");
@@ -171,7 +169,7 @@ function TeacherProfile() {
 
   const handleCreateOfficeHour = async (payload) => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/office-hours/", {
+      const res = await fetch(`${API_BASE}/api/office-hours/`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -196,17 +194,14 @@ function TeacherProfile() {
 
   const handleUpdateOfficeHour = async (officeHourId, payload) => {
     try {
-      const res = await fetch(
-        `http://127.0.0.1:8000/api/office-hours/${officeHourId}/`,
-        {
-          method: "PATCH",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(payload),
+      const res = await fetch(`${API_BASE}/api/office-hours/${officeHourId}/`, {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
         },
-      );
+        body: JSON.stringify(payload),
+      });
 
       const data = await res.json();
 
@@ -235,7 +230,7 @@ function TeacherProfile() {
         }
       });
 
-      const res = await fetch("http://127.0.0.1:8000/api/courses/", {
+      const res = await fetch(`${API_BASE}/api/courses/`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -269,16 +264,13 @@ function TeacherProfile() {
         }
       });
 
-      const res = await fetch(
-        `http://127.0.0.1:8000/api/courses/${courseId}/`,
-        {
-          method: "PATCH",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          body: formData,
+      const res = await fetch(`${API_BASE}/api/courses/${courseId}/`, {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-      );
+        body: formData,
+      });
 
       const data = await res.json();
 
@@ -305,15 +297,12 @@ function TeacherProfile() {
     if (!confirmed) return;
 
     try {
-      const res = await fetch(
-        `http://127.0.0.1:8000/api/courses/${courseId}/`,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+      const res = await fetch(`${API_BASE}/api/courses/${courseId}/`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-      );
+      });
 
       if (!res.ok) {
         throw new Error("Delete failed");

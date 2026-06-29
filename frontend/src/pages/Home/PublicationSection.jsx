@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Calendar, User, BookOpen, ArrowUpRight } from "lucide-react";
+import { API_BASE } from "../../services/adminApi";
 
 function PublicationSection() {
-  const BASE_URL = "http://127.0.0.1:8000";
+  const BASE_URL = API_BASE;
   const navigate = useNavigate();
 
   const [publications, setPublications] = useState([]);

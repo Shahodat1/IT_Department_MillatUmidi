@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { CalendarDays, Plus, Pencil, Trash2, X, Loader2 } from "lucide-react";
+import { API_BASE } from "../../services/adminApi";
 
-const API = "http://127.0.0.1:8000/api/semesters/";
+const API = API_BASE;
 
 const initialForm = {
   semester_n: "",

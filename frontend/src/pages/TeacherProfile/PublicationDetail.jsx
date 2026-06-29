@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 import { motion } from "framer-motion";
+import { API_BASE } from "../../services/adminApi";
 
 import {
   ArrowLeft,
@@ -18,7 +19,7 @@ function PublicationDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const BASE_URL = "http://127.0.0.1:8000";
+  const BASE_URL = API_BASE;
 
   const [pub, setPub] = useState(null);
   const [isEditing, setIsEditing] = useState(false);

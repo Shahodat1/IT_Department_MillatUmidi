@@ -189,7 +189,7 @@ export default function PublicationsPage() {
     try {
       const token = localStorage.getItem("access");
 
-      const res = await fetch(`${API_URL}/publications/${pub.id}/`, {
+      const res = await fetch(`${API_URL}/api/publications/${pub.id}/`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -223,8 +223,8 @@ export default function PublicationsPage() {
         const headers = token ? { Authorization: `Bearer ${token}` } : {};
 
         const [galleryRes, publicationRes] = await Promise.all([
-          fetch(`${API_URL}/gallery-items/`, { headers }),
-          fetch(`${API_URL}/publications/`, { headers }),
+          fetch(`${API_URL}/api/gallery-items/`, { headers }),
+          fetch(`${API_URL}/api/publications/`, { headers }),
         ]);
 
         const galleryData = await galleryRes.json();

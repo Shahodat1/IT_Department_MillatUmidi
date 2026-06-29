@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CertificateCard from "../../components/certificates/CertificateCard";
+import { API_BASE } from "../../services/adminApi";
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+const API_BASE_URL = API_BASE;
 
 function formatDate(dateString) {
   if (!dateString) return "-";

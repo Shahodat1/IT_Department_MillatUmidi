@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import { API_BASE } from "../../services/adminApi";
 
 function DepartmentHeadSection() {
   const [head, setHead] = useState(null);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/teachers/")
+    fetch(`${API_BASE}/api/teachers/`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

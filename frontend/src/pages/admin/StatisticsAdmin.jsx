@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { BarChart3, Plus, Pencil, Trash2, X, Loader2 } from "lucide-react";
+import { API_BASE } from "../../services/adminApi";
 
-const API_BASE = "http://127.0.0.1:8000/api";
 const STATISTICS_URL = "/statistics/";
 
 // Agar backend JWT ishlatsa: "Bearer"

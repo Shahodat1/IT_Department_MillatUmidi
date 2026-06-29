@@ -11,6 +11,7 @@ import {
   History,
   RadioTower,
 } from "lucide-react";
+import { API_BASE } from "../../services/adminApi";
 
 function HeroSection() {
   const [upcoming, setUpcoming] = useState([]);
@@ -18,7 +19,7 @@ function HeroSection() {
   const [featured, setFeatured] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const BASE_URL = "http://127.0.0.1:8000";
+  const BASE_URL = API_BASE;
   const refs = useRef([]);
 
   const formatDate = (dateString) => {

@@ -7,8 +7,9 @@ import {
   setAccessToken,
   setRefreshToken,
 } from "../services/adminApi";
+import { API_BASE } from "../../services/adminApi";
 
-const BASE_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+const BASE_URL = API_BASE;
 
 function Login() {
   const [username, setUsername] = useState("");
