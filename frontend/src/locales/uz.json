@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "home": "Bosh sahifa",
+    "about": "Biz haqimizda",
+    "teachers": "O‘qituvchilar",
+    "courses": "Kurslar",
+    "research": "Tadqiqot",
+    "contact": "Aloqa"
+  },
+  "footer": {
+    "rights": "Barcha huquqlar himoyalangan."
+  },
+  "buttons": {
+    "viewProfile": "Profilni ko‘rish",
+    "readMore": "Batafsil"
+  },
+  "teacher": {
+    "ourTeachers": "Bizning o‘qituvchilar",
+    "personal": "Shaxsiy",
+    "education": "Ta’lim",
+    "research": "Tadqiqot",
+    "publications": "Nashrlar",
+    "honors": "Mukofotlar va yutuqlar"
+  }
+}

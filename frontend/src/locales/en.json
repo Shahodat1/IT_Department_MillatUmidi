@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "teachers": "Teachers",
+    "courses": "Courses",
+    "research": "Research",
+    "contact": "Contact"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  },
+  "buttons": {
+    "viewProfile": "View Profile",
+    "readMore": "Read More"
+  },
+  "teacher": {
+    "ourTeachers": "Our Teachers",
+    "personal": "Personal",
+    "education": "Education",
+    "research": "Research",
+    "publications": "Publications",
+    "honors": "Honors & Awards"
+  }
+}

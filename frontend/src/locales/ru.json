@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "home": "Главная",
+    "about": "О нас",
+    "teachers": "Преподаватели",
+    "courses": "Курсы",
+    "research": "Исследования",
+    "contact": "Контакты"
+  },
+  "footer": {
+    "rights": "Все права защищены."
+  },
+  "buttons": {
+    "viewProfile": "Посмотреть профиль",
+    "readMore": "Подробнее"
+  },
+  "teacher": {
+    "ourTeachers": "Наши преподаватели",
+    "personal": "Личное",
+    "education": "Образование",
+    "research": "Исследования",
+    "publications": "Публикации",
+    "honors": "Награды и достижения"
+  }
+}

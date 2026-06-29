@@ -1,0 +1,44 @@
+# Python
+backend/venv/
+backend/**/__pycache__/
+backend/*.sqlite3
+
+# Environment
+.env
+backend/.env
+frontend/.env
+
+# Media
+backend/media/
+
+# Static
+backend/staticfiles/
+
+# React
+frontend/node_modules/
+frontend/dist/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python cache
+*.pyc
+*.pyo
+*.pyd
+
+# Build files
+*.egg-info/
+
+
+backend/node_modules/
+migration_backup/
+
+backend/package.json
+backend/package-lock.json
